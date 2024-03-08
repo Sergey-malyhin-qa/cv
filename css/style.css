@@ -1,137 +1,180 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: "Helvetica";
-  background-color: #f2f1f6;
-  color: #000000;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+
+.header {
+  width: 100%;
+  padding: 15px 0;
+
+
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 24px;
+  font-weight: 300;
+  color: gray;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.header {
-  box-sizing: border-box;
-  margin: 40px 0 20px 0;
-  display: flex;
-
-  width: 320px;
-  column-gap: 20px;
-  row-gap: 10px;
-  border-radius: 20px;
-  padding: 20px;
-  background-color: #ffffff;
+.container {
+  max-width: 1230px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
-.header__textContainer {
+.hero__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax( 290px,1fr));
+  grid-gap: 20px;
+}
+
+
+.hero__about {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  justify-content: center;
+
 }
 
-.header__avatar {
-  border-radius: 50%;
-  width: 200px;
-  height: 180px;
-}
+.hero__title {
+  font-size: 48px;
+  line-height: 1.1;
 
-.header__title {
-  margin: 0;
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 1.2;
-  font-family: "Helvetica Neue";
-  align-items: center;
-}
-
-.header__subtitle {
-  color: #7d7d7f;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.4;
-  margin: 0;
-}
-
-.links {
-  width: 320px;
   margin-bottom: 20px;
 }
 
-.links__header {
-  font-size: 24px;
-  line-height: 1.4;
-  margin: 0 0 15px 0;
-  font-family: "Helvetica Neue";
+.hero__prof {
+  color: #4facfe;
+  white-space: nowrap;
 }
 
-.links__container {
-  list-style-type: none;
-  background: #ffffff;
-  border-radius: 20px;
+.hero__subtitle {
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.hero__links {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 20px 20px 10px;
-  gap: 10px;
-  flex: none;
-  order: 1;
-  flex-grow: 0;
-  box-sizing: border-box;
-  margin: 0;
 }
 
-.links__link,
-.links__title {
-  font-size: 14px;
-  font-size: 1.4;
+.hero__link {
+  margin-right: 10px;
+
+  font-size: 30px;
+  color: #000;
 }
 
-.links__link {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  padding: 0px 0px 10px;
-  gap: 30px;
-  border-bottom: 1px solid #dedede;
-  width: 280px;
+.hero__link:hover {
+  color: #4facfe;
 }
 
-.links__link:last-child {
-  border-bottom: none;
+
+.hero__box {
+  max-width: 500px;
+  justify-self: center;
+  overflow: hidden;
+  border: 10px solid #fff;
+
+  background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+
+  animation: ava-animate 5s infinite alternate;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, .5);
 }
 
-.linsk__link,
-.links__link:visited {
-  text-decoration: none;
-  color: #0c79ff;
+.hero__box-img {
+  animation: ava-bg 3s infinite alternate;
 }
 
-.links__title {
-  margin: 0;
-  min-width: 100px;
+@media screen and (max-width: 978px) {
+  .hero {
+    padding-top: 30px;
+  }
+
+  .hero__container {
+    grid-row-gap: 20px;
+  }
+
+  .hero__title {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+
+  .hero__subtitle {
+    font-size: 22px;
+    font-weight: 400;
+  }
+
+  .hero__description {
+    font-size: 14px;
+  }
+
+  .hero__about {
+    text-align: center;
+  }
+
+  .hero__links {
+    justify-content: center;
+  }
+
+  .hero__box {
+    max-width: 350px;
+    justify-self: center;
+  }
 }
 
-footer {
-  margin: 0 0 40px 0;
-}
-.button-link {
-  margin-top: 10px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  width: 320px;
-  background: #ffffff;
-  border-radius: 10px;
 
-  font-size: 14px;
-  line-height: 1.4;
 
-  color: #0c79ff;
-  text-decoration: none;
+@keyframes ava-animate {
+  0% {
+    border-radius: 62% 38% 72% 28% / 67% 32% 68% 33%;
+  }
+
+  40% {
+    border-radius: 37% 63% 53% 47% / 67% 32% 68% 33%;
+  }
+
+  60% {
+    border-radius: 23% 77% 39% 61% / 78% 54% 46% 22%;
+  }
+
+  100% {
+    border-radius: 18% 82% 24% 76% / 43% 54% 46% 57%;
+  }
 }
 
-button {
-  border: 0;
-}
+@keyframes ava-bg {
+  from {
+    backdrop-filter: hue-rotate(0);
+  }
 
+  to {
+    backdrop-filter: hue-rotate(90deg);
+  }
+}
